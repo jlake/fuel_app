@@ -7,3 +7,4 @@ With common function:
 * api (REST)
 * auth
 * pagination
+* upload
