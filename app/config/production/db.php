@@ -10,7 +10,7 @@ return array(
 			'username'   => 'root',
 			'password'   => '',
 		),
-		'table_prefix' => 'ap_',
-		'profiling' => true,
+		//'table_prefix' => 'ap_',
+		'profiling' => false,
 	),
 );
