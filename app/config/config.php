@@ -24,6 +24,12 @@ return array(
 	'server_gmt_offset'  =>  3600 * 9, //0,
 	'default_timezone' => 'Asia/Tokyo',
 
+	'profiling'  => (\Fuel::$env == \Fuel::DEVELOPMENT),
+	'security' => array(
+		'uri_filter'       => array('htmlentities'),
+		'output_filter'  => array('Security::htmlentities'),
+	),
+
 	'always_load' => array(
 		'packages' => array(
 			'auth',
@@ -37,5 +43,4 @@ return array(
 		'Fuel\Core\Validation',
 		'Closure',
 	),
-	'profiling'  => (\Fuel::$env == \Fuel::DEVELOPMENT),
 );

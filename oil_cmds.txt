@@ -17,4 +17,8 @@ $ php oil r migrate
 $ php oil g scaffold dummy col1:string col2:text user_id:int
 $ php oil r migrate
 
+(create all tables)
+$ php oil r migrate:current
+
+(task)
 $ php oil r robots
