@@ -1,6 +1,6 @@
 # Commands
 
-$ php oil g model users username:varchar[50] password:string group:int email:string last_login:int login_hash:string profile_fields:text
+$ php oil g model users username:varchar[50] password:string group_id:int email:string last_login:int login_hash:string profile_fields:text
 $ php oil r migrate
 
 $ php oil console
