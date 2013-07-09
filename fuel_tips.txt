@@ -6,31 +6,12 @@ Response::redirect('controller/action');
 ■URLパラメータの取得
 
 ①print_r(\Request::main()->uri);
-Fuel\Core\Uri Object
-(
-    [uri:protected] => demo/pagination/7
-    [segments:protected] => Array
-        (
-            [0] => demo
-            [1] => pagination
-            [2] => 7
-        )
-
-)
 
 ②print_r(\Request::main()->uri->get_segments());
-Array
-(
-    [0] => demo
-    [1] => pagination
-    [2] => 7
-)
 
 ③print_r(\Request::main()->uri->get_segment(1));
-demo
 
 ④print_r(\Request::main()->uri->string());
-demo/pagination/7
 
 ■セッション処理
 
