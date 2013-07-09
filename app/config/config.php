@@ -27,7 +27,10 @@ return array(
 	'profiling'  => (\Fuel::$env == \Fuel::DEVELOPMENT),
 	'security' => array(
 		'uri_filter'       => array('htmlentities'),
-		'output_filter'  => array('Security::htmlentities'),
+		'input_filter'  => array(),
+		//'input_filter'  => array('Security::check_encoding'),
+		'output_filter'  => array(),
+		//'output_filter'  => array('Security::htmlentities'),
 	),
 
 	'always_load' => array(
