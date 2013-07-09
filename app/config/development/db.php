@@ -11,6 +11,6 @@ return array(
 			'password'   => '',
 		),
 		'table_prefix' => 'ap_',
-		'profiling'    => true,
+		'profiling' => true,
 	),
 );
