@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="actions">
-		<?php echo Form::submit(array('value'=>'Login', 'name'=>'submit')); ?>
+		<?php echo Form::submit('submit', 'Login', array('class' => 'btn btn-primary')); ?>
 	</div>
 
 <?php echo Form::close(); ?>

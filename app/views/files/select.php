@@ -11,6 +11,6 @@
 		<?php echo Form::file('uploadfile'); ?>
 	</div>
 	<div>
-		<?php echo Form::submit('submit', '送信'); ?>
+		<?php echo Form::submit('submit', '送信', array('class' => 'btn btn-primary')); ?>
 	</div>
 <?php echo Form::close(); ?>

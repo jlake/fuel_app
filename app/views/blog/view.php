@@ -41,8 +41,8 @@
 	</div>
 
 	<div class="row">
-	   <div class="input"><?php echo Form::submit('submit'); ?></div>
-</div>
+		<?php echo Form::submit('submit', 'Send', array('class' => 'btn btn-primary')); ?>
+	</div>
 </fieldset>
 
 <?php echo Form::close() ?>
