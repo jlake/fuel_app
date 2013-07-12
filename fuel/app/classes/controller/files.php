@@ -19,7 +19,7 @@ class Controller_Files extends Controller_Template
 
 		if (!Upload::is_valid()) {
 			$this->template->title = "Files &raquo; Select";
-			$this->template->content = View::forge('files/select', $data);
+			$this->template->content = View::forge('files/select');
 
 			$html_error = '';
 			foreach (Upload::get_errors() as $error) {
@@ -31,7 +31,7 @@ class Controller_Files extends Controller_Template
 
 		Upload::save();
 		$this->template->title = "Files &raquo; Uploaded";
-		$this->template->content = View::forge('files/upload', $data);
+		$this->template->content = View::forge('files/upload');
 		$this->template->content->set('files', Upload::get_files());
 		$this->template->content->set_safe('uploadPath', Config::get('upload.path')); // for DEBUG
 	}

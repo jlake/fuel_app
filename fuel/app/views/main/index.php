@@ -9,6 +9,7 @@
 					<li><?php echo Html::anchor('auth/login', 'Auth') ?></li>
 					<li><?php echo Html::anchor('blog', 'Blog') ?></li>
 					<li><?php echo Html::anchor('dummy', 'Dummy') ?></li>
+					<li><?php echo Html::anchor('files', 'Upload') ?></li>
 				</ul>
 			</div>
 		</div>
