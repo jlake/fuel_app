@@ -1,5 +1,5 @@
-TRUNCATE TABLE ap_dummies;
-INSERT INTO `ap_dummies` (`id`, `col1`, `col2`, `user_id`, `created_at`, `updated_at`) VALUES
+TRUNCATE TABLE dummies;
+INSERT INTO `dummies` (`id`, `col1`, `col2`, `user_id`, `created_at`, `updated_at`) VALUES
 	(1, 'Row1_Col1', 'Row1_Col2', 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
 	(2, 'Row2_Col1', 'Row2_Col2', 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
 	(3, 'Row3_Col1', 'Row3_Col2', 0, UNIX_TIMESTAMP(), UNIX_TIMESTAMP()),
