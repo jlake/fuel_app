@@ -1,1 +1,1 @@
-<p><a href="/auth/login">トップへ戻る</a></p>
+<p><a href="<?php echo Uri::create('/auth/login'); ?>">トップへ戻る</a></p>

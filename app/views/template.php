@@ -20,7 +20,7 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a href="/" class="brand">My Site</a>
+				<a href="<?php echo Uri::base(); ?>" class="brand">My Site</a>
 				<ul class="nav">
 					<li class="<?php echo Uri::segment(1) == 'blog' ? 'active' : '' ?>">
 						<?php echo Html::anchor('blog', 'Blog') ?>
