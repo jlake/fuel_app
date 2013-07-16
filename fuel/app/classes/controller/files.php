@@ -15,7 +15,10 @@ class Controller_Files extends Controller_Template
 
 	public function action_upload() {
 
-		Upload::process(array('path' => Config::get('upload.path')));
+		Upload::process(array(
+			'path' => Config::get('upload.path'),
+			//'prefix' => 'test_',
+		));
 
 		if (!Upload::is_valid()) {
 			$this->template->title = "Files &raquo; Select";
