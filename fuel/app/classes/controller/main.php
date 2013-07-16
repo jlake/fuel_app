@@ -24,6 +24,7 @@ class Controller_Main extends Controller_Template
 	public function action_404()
 	{
 		$this->template->title = 'Error - Page not found';
-		$this->template->content = View::forge('main/404');
+		$messages = array('Aw, crap!', 'Bloody Hell!', 'Uh Oh!', 'Nope, not here.', 'Huh?');
+		$this->template->content = View::forge('main/404', array('title' => $messages[array_rand($messages)]));
 	}
 }
