@@ -1,24 +1,31 @@
 <?php
-class Controller_Dummy extends Controller_Template 
+/**
+ * ダミー画面コントローラー
+ *
+ * @package  app
+ * @extends  Controller_Base
+ */
+class Controller_Dummy extends Controller_Base
 {
 
 	public function action_index()
 	{
-
 		$config = array(
-			'pagination_url' => \Uri::base(false) . 'dummy/index',
-			'total_items' => \DB::count_records('dummies'),
+			'pagination_url' => \Uri::base() . 'dummy/index',
+			'total_items' => Model_Dummy::count(),
 			'per_page' => 10,
 			//'uri_segment' => 3,
-			'uri_segment'    => 'page',
+			//'uri_segment' => 'page',
 			'num_links' => 10,
+            /*
 			'template' => array(
 				'wrapper' => '<div class="pagination">{pagination}\n</div>\n',
 			),
+            */
 		);
 
-		// Create a pagination instance named 'foundation'
-		$pagination = Pagination::forge('foundation', $config);
+		// Create a pagination instance named 'bootstrap3'
+		$pagination = Pagination::forge('bootstrap3', $config);
 
 		$data['dummies'] = Model_Dummy::find('all',  array(
 			'limit' => \Pagination::get('per_page'),
@@ -29,10 +36,11 @@ class Controller_Dummy extends Controller_Template
 
 		$view = View::forge('dummy/index', $data);
 		//$view->set_safe('pagination', \Pagination::create_links());
+        $view->set_safe('pagination', $pagination->render());
 
-		$this->template->title = "Dummies";
+		$this->template->set_global('title', 'ダミーデータ一覧');
 		$this->template->content = $view;
-
+        
 	}
 
 	public function action_view($id = null)
@@ -41,44 +49,34 @@ class Controller_Dummy extends Controller_Template
 
 		is_null($id) and Response::redirect('Dummy');
 
-		$this->template->title = "Dummy";
+		$this->template->title = "ダミーデータ詳細";
 		$this->template->content = View::forge('dummy/view', $data);
 
 	}
 
 	public function action_create()
 	{
-		if (Input::method() == 'POST')
-		{
+		if (Input::method() == 'POST') {
 			$val = Model_Dummy::validate('create');
 
-			if ($val->run())
-			{
+			if ($val->run()) {
 				$dummy = Model_Dummy::forge(array(
-					'col1' => Input::post('col1'),
-					'col2' => Input::post('col2'),
-					'user_id' => Input::post('user_id'),
+					'inf1' => Input::post('inf1'),
+					'inf2' => Input::post('inf2'),
 				));
 
-				if ($dummy and $dummy->save())
-				{
+				if ($dummy and $dummy->save()) {
 					Session::set_flash('success', 'Added dummy #'.$dummy->id.'.');
-
 					Response::redirect('dummy');
-				}
-
-				else
-				{
+				} else {
 					Session::set_flash('error', 'Could not save dummy.');
 				}
-			}
-			else
-			{
+			} else {
 				Session::set_flash('error', $val->error());
 			}
 		}
 
-		$this->template->title = "Dummies";
+		$this->template->title = "ダミー新規登録";
 		$this->template->content = View::forge('dummy/create');
 
 	}
@@ -91,32 +89,21 @@ class Controller_Dummy extends Controller_Template
 
 		$val = Model_Dummy::validate('edit');
 
-		if ($val->run())
-		{
-			$dummy->col1 = Input::post('col1');
-			$dummy->col2 = Input::post('col2');
-			$dummy->user_id = Input::post('user_id');
+		if ($val->run()) {
+			$dummy->inf1 = Input::post('inf1');
+			$dummy->inf2 = Input::post('inf2');
 
-			if ($dummy->save())
-			{
+			if ($dummy->save()) {
 				Session::set_flash('success', 'Updated dummy #' . $id);
 
 				Response::redirect('dummy');
-			}
-
-			else
-			{
+			} else {
 				Session::set_flash('error', 'Could not update dummy #' . $id);
 			}
-		}
-
-		else
-		{
-			if (Input::method() == 'POST')
-			{
-				$dummy->col1 = $val->validated('col1');
-				$dummy->col2 = $val->validated('col2');
-				$dummy->user_id = $val->validated('user_id');
+		} else {
+			if (Input::method() == 'POST') {
+				$dummy->inf1 = $val->validated('inf1');
+				$dummy->inf2 = $val->validated('inf2');
 
 				Session::set_flash('error', $val->error());
 			}
@@ -124,22 +111,17 @@ class Controller_Dummy extends Controller_Template
 			$this->template->set_global('dummy', $dummy, false);
 		}
 
-		$this->template->title = "Dummies";
+		$this->template->title = "ダミーデータ一覧";
 		$this->template->content = View::forge('dummy/edit');
 
 	}
 
 	public function action_delete($id = null)
 	{
-		if ($dummy = Model_Dummy::find($id))
-		{
+		if ($dummy = Model_Dummy::find($id)) {
 			$dummy->delete();
-
 			Session::set_flash('success', 'Deleted dummy #'.$id);
-		}
-
-		else
-		{
+		} else {
 			Session::set_flash('error', 'Could not delete dummy #'.$id);
 		}
 

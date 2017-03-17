@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Auth extends Controller_Template
+class Controller_Auth extends Controller_Base
 {
 
 	public function before()
@@ -47,13 +47,6 @@ class Controller_Auth extends Controller_Template
 		}
 	}
 
-	public function action_404()
-	{
-		// ページが見つからない
-		$this->template->title = 'ページが見つかりません。';
-		$this->template->content = View::forge('auth/404');
-	}
-
 	public function action_timeout()
 	{
 		// 不正アクセス
@@ -86,6 +79,7 @@ class Controller_Auth extends Controller_Template
 
 	public function action_login()
 	{
+		$this->template = View::forge('layout_login');
 		// ログイン処理
 		$username = Input::post('username', null);
 		$password = Input::post('password', null);
@@ -121,7 +115,7 @@ class Controller_Auth extends Controller_Template
 	public function action_create()
 	{
 		// ユーザー作成
-		$this->template->title = 'ユーザー作成';
+		$this->template->title = '新規アカウント登録';
 		$this->template->content = View::forge('auth/create');
 		$this->template->content->set_safe('errmsg', "");
 	}
@@ -155,8 +149,10 @@ class Controller_Auth extends Controller_Template
 				$auth = Auth::instance();
 				$input = $validation->input();
 				if ($auth->create_user($input['username'], $input['password'], $input['email'])) {
-					$this->template->title = 'ユーザー登録完了';
-					$this->template->content = View::forge('auth/created');
+					//$this->template->title = 'ユーザー登録完了';
+					//$this->template->content = View::forge('auth/created');
+					Session::set_flash('success', 'ユーザー登録しました');
+					Response::redirect();
 					return;
 				}
 				$result_validate = 'ユーザー作成に失敗しました。';
@@ -168,7 +164,10 @@ class Controller_Auth extends Controller_Template
 		}
 		$this->template->title = 'ユーザー作成';
 		$this->template->content = View::forge('auth/create');
-		$this->template->content->set_safe('errmsg', $result_validate);
+		//$this->template->content->set_safe('errmsg', $result_validate);
+		if($result_validate) {
+			Session::set_flash('error', $result_validate);
+		}
 	}
 
 	public function action_update()

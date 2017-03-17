@@ -1,1 +1,1 @@
-<p><a href="<?php echo Uri::create('/auth/login'); ?>">トップへ戻る</a></p>
+<div class="text-center">	<p>タイムアウトしました。</p>	<p><a href="<?php echo Uri::base(); ?>" class="btn btn-primary">トップへ</a></p>	<p><a href="<?php echo Uri::create('/auth/login'); ?>" class="btn btn-primary">もう一度ログイン</a></p></div>

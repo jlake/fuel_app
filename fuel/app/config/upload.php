@@ -1,28 +1,5 @@
 <?php
-/**
- * Part of the Fuel framework.
- *
- * @package    Fuel
- * @version    1.6
- * @author     Fuel Development Team
- * @license    MIT License
- * @copyright  2010 - 2013 Fuel Development Team
- * @link       http://fuelphp.com
- */
-
-/**
- * NOTICE:
- *
- * If you need to make modifications to the default configuration, copy
- * this file to your app/config folder, and make them in there.
- *
- * This will allow you to upgrade fuel without losing your custom config.
- */
-
 return array(
-	/**
-	 * global configuration
-	*/
 
 	// if true, the $_FILES array will be processed when the class is loaded
 	'auto_process'		=> false,
@@ -32,7 +9,7 @@ return array(
 	*/
 
 	// maximum size of the uploaded file in bytes. 0 = no maximum
-	'max_size'			=> 0,
+	'max_size'			=> 2048000,
 
 	// 拡張子がpng, jpg, gifのファイルのみ許可
 	'ext_whitelist'	 => array('png', 'jpg', 'gif',),
@@ -68,7 +45,8 @@ return array(
 
 	// default path the uploaded files will be saved to
 	//'path'				=> '/tmp/uploads',
-	'path'				=> DOCROOT . 'uploads',
+	'path'				=> DOCROOT . 'files/uploads',
+	'url_prefix'		=> Uri::base() . 'files/uploads',
 
 	// create the path if it doesn't exist
 	'create_path'		=> true,
@@ -95,7 +73,13 @@ return array(
 	'change_case'		=> false,
 
 	// maximum lengh of the filename, after all name modifications have been made. 0 = no maximum
-	'max_length'		=> 0
+	'max_length'		=> 255,
+	
+	// ou 追加
+	'max_width'			=> 640,
+	'thumb_path'		=> DOCROOT . 'files/thumbnails',
+	'thumb_width'		=> 120,
+	'thumb_height'		=> 120,
 );
 
 

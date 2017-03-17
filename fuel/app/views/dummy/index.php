@@ -1,29 +1,29 @@
-<h2>Listing Dummies</h2>
+<h2><?php echo $title ?></h2>
 <br>
 <?php if ($dummies): ?>
 <table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Col1</th>
-			<th>Col2</th>
-			<th>User id</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
+    <thead>
+        <tr>
+            <th>Inf1</th>
+            <th>Inf2</th>
+            <th>Updated At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
 <?php foreach ($dummies as $dummy): ?>
-		<tr>
-			<td><?php echo $dummy->col1; ?></td>
-			<td><?php echo $dummy->col2; ?></td>
-			<td><?php echo $dummy->user_id; ?></td>
-			<td>
-				<?php echo Html::anchor('dummy/view/'.$dummy->id, 'View'); ?> |
-				<?php echo Html::anchor('dummy/edit/'.$dummy->id, 'Edit'); ?> |
-				<?php echo Html::anchor('dummy/delete/'.$dummy->id, 'Delete', array('onclick' => "return confirm('Are you sure?')")); ?>
-			</td>
-		</tr>
+        <tr>
+            <td><?php echo $dummy->inf1; ?></td>
+            <td><?php echo $dummy->inf2; ?></td>
+            <td><?php echo $dummy->updated_at; ?></td>
+            <td>
+                <?php echo Html::anchor('dummy/view/'.$dummy->id, '詳細'); ?> |
+                <?php echo Html::anchor('dummy/edit/'.$dummy->id, '編集'); ?> |
+                <?php echo Html::anchor('dummy/delete/'.$dummy->id, '削除', array('onclick' => "return confirm('削除しますか?')")); ?>
+            </td>
+        </tr>
 <?php endforeach; ?>
-	</tbody>
+    </tbody>
 </table>
 
 <?php echo $pagination; ?>
@@ -32,6 +32,6 @@
 <p>No Dummies.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('dummy/create', 'Add new Dummy', array('class' => 'btn btn-success')); ?>
+    <?php echo Html::anchor('dummy/create', '新規', array('class' => 'btn btn-success')); ?>
 
 </p>

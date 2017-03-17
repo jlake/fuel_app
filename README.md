@@ -1,12 +1,12 @@
-A fuelphp app skeleton.
+A FuelPHP app skeleton.
 ========
 
-Use css framework: [Foundation 4](http://foundation.zurb.com/download.php)
+FuelPHP version: 1.7～1.8
 
-With common function:
+# modules:
 * frontend
-* backend
-* api (REST)
-* auth
-* pagination
-* upload
+* admin
+* api
+
+# install:
+php composer.phar install

@@ -1,14 +1,27 @@
-<h2>Viewing #<?php echo $dummy->id; ?></h2>
+<h2>ダミーデータ詳細 #<?php echo $dummy->id; ?></h2>
 
-<p>
-	<strong>Col1:</strong>
-	<?php echo $dummy->col1; ?></p>
-<p>
-	<strong>Col2:</strong>
-	<?php echo $dummy->col2; ?></p>
-<p>
-	<strong>User id:</strong>
-	<?php echo $dummy->user_id; ?></p>
-
-<?php echo Html::anchor('dummy/edit/'.$dummy->id, 'Edit'); ?> |
-<?php echo Html::anchor('dummy', 'Back'); ?>
+<div class="row">
+	<div class="col-md-3 text-right">
+		<?php echo Form::label('Inf1', 'inf1'); ?>
+	</div>
+	<div class="col-md-5">
+		<?php echo $dummy->inf1; ?>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3 text-right">
+		<?php echo Form::label('Inf2', 'inf2'); ?>
+	</div>
+	<div class="col-md-5">
+		<?php echo $dummy->inf2; ?></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+	</div>
+	<div class="col-md-5">
+		<?php echo Html::anchor('dummy/edit/'.$dummy->id, '編集', array('class' => 'btn btn-success')); ?>
+		&nbsp;&nbsp;
+		<?php echo Html::anchor('dummy', '戻る', array('class' => 'btn btn-default')); ?>
+	</div>
+</div>

@@ -1,1 +1,1 @@
-<p><a href="<?php echo Uri::create('/auth/update'); ?>">ユーザー情報更新</a></p><p><a href="<?php echo Uri::create('/auth/remove'); ?>">ユーザー情報削除</a></p><p><a href="<?php echo Uri::create('/auth/logout'); ?>">ログアウト</a></p><p><a href="<?php echo Uri::create('/auth/login'); ?>">トップへ戻る</a></p>
+<div class="text-center">	<p>ログインしました。</p>	<p><a href="<?php echo Uri::base(); ?>" class="btn btn-primary">トップへ</a></p></div>

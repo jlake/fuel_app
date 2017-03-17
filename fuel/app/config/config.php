@@ -1,36 +1,46 @@
 <?php
 /**
- * Fuel is a fast, lightweight, community driven PHP5 framework.
+ * Part of the Fuel framework.
  *
  * @package    Fuel
- * @version    1.0
+ * @version    1.8
  * @author     Fuel Development Team
  * @license    MIT License
- * @copyright  2010 - 2012 Fuel Development Team
+ * @copyright  2010 - 2016 Fuel Development Team
  * @link       http://fuelphp.com
  */
 
-/**
- * If you want to override the default configuration, add the keys you
- * want to change here, and assign new values to them.
- */
-
 return array(
+	'base_url'  => '/fuel/',
+
 	'language'           => 'ja',
 	'language_fallback'  => 'en',
 	'locale'             => 'ja_JP',
 	'encoding' => 'UTF-8',
 
-	'server_gmt_offset'  =>  3600 * 9, //0,
+	//'server_gmt_offset'  =>  3600 * 9, //0,
 	'default_timezone' => 'Asia/Tokyo',
 
-	'profiling'  => (\Fuel::$env == \Fuel::DEVELOPMENT),
+	//'profiling'  => (\Fuel::$env == \Fuel::DEVELOPMENT),
+	'profiling'  => false,
 	'security' => array(
 		'uri_filter'       => array('htmlentities'),
-		'input_filter'  => array(),
-		//'input_filter'  => array('Security::check_encoding'),
-		'output_filter'  => array(),
-		//'output_filter'  => array('Security::htmlentities'),
+		'output_filter'  => array('Security::htmlentities'),
+		'whitelisted_classes' => array(
+			'Fuel\\Core\\Presenter',
+			'Fuel\\Core\\Response',
+			'Fuel\\Core\\View',
+			'Fuel\\Core\\ViewModel',
+			'Closure',
+		),
+	),
+
+	'module_paths' => array(
+		APPPATH.'modules'.DS
+	),
+
+	'package_paths' => array(
+		PKGPATH,
 	),
 
 	'always_load' => array(
@@ -39,11 +49,12 @@ return array(
 			'orm',
 		),
 	),
-	'whitelisted_classes' => array(
-		'Fuel\\Core\\Response',
-		'Fuel\\Core\\View',
-		'Fuel\\Core\\ViewModel',
-		'Fuel\Core\Validation',
-		'Closure',
+
+	'cookie' => array(
+		'expiration'  => 0,
+		'path'        => '/fuel/',
+		'domain'      => null,
+		'secure'      => false,
+		'http_only'   => false,
 	),
 );

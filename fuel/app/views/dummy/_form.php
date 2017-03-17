@@ -1,33 +1,27 @@
-<?php echo Form::open(); ?>
-
-	<fieldset>
-		<div class="clearfix">
-			<?php echo Form::label('Col1', 'col1'); ?>
-
-			<div class="input">
-				<?php echo Form::input('col1', Input::post('col1', isset($dummy) ? $dummy->col1 : ''), array('class' => 'span4')); ?>
-
-			</div>
+<?php echo Form::open(array('action' => '', 'class' => 'form-horizontal', 'role' => 'form')); ?>
+	<div class="form-group">
+		<div class="col-md-3 text-right">
+			<?php echo Form::label('Inf1', 'inf1', array('class' => 'control-label')); ?>
 		</div>
-		<div class="clearfix">
-			<?php echo Form::label('Col2', 'col2'); ?>
-
-			<div class="input">
-				<?php echo Form::textarea('col2', Input::post('col2', isset($dummy) ? $dummy->col2 : ''), array('class' => 'span8', 'rows' => 8)); ?>
-
-			</div>
+		<div class="col-md-5">
+			<?php echo Form::input('inf1', Input::post('inf1', isset($dummy) ? $dummy->inf1 : ''), array('class' => 'form-control')); ?>
 		</div>
-		<div class="clearfix">
-			<?php echo Form::label('User id', 'user_id'); ?>
-
-			<div class="input">
-				<?php echo Form::input('user_id', Input::post('user_id', isset($dummy) ? $dummy->user_id : ''), array('class' => 'span4')); ?>
-
-			</div>
+	</div>
+	<div class="form-group">
+		<div class="col-md-3 text-right">
+			<?php echo Form::label('Inf2', 'inf2', array('class' => 'control-label')); ?>
 		</div>
-		<div class="actions">
-			<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>
-
+		<div class="col-md-5">
+			<?php echo Form::textarea('inf2', Input::post('inf2', isset($dummy) ? $dummy->inf2 : ''), array('class' => 'form-control', 'rows' => 8, 'cols' => 50)); ?>
 		</div>
-	</fieldset>
+	</div>
+	<div class="form-group">
+		<div class="col-md-3">
+		</div>
+		<div class="col-md-5">
+			<?php echo Form::submit('submit', '保存', array('class' => 'btn btn-success')); ?>
+			&nbsp;&nbsp;
+			<?php echo Html::anchor('dummy', '戻る', array('class' => 'btn btn-default')); ?>
+		</div>
+	</div>
 <?php echo Form::close(); ?>
