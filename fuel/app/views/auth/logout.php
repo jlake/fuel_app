@@ -1,1 +1,1 @@
-<div class="text-center">	<p>ログアウトしました。</p>	<p><a href="<?php echo Uri::create('/auth/login'); ?>">ログイン</a></p></div>
+<div class="text-center">	<p>ログアウトしました。</p>	<p><a href="<?php echo Uri::create('/auth/login'); ?>" class="btn btn-primary">ログイン</a></p></div>

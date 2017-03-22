@@ -1,7 +1,7 @@
 <?php echo Form::open(array('action' => '', 'class' => 'form-horizontal', 'role' => 'form')); ?>
 	<div class="form-group">
 		<div class="col-md-3 text-right">
-			<?php echo Form::label('Inf1', 'inf1', array('class' => 'control-label')); ?>
+			<?php echo Form::label('カラム1', 'inf1', array('class' => 'control-label')); ?>
 		</div>
 		<div class="col-md-5">
 			<?php echo Form::input('inf1', Input::post('inf1', isset($dummy) ? $dummy->inf1 : ''), array('class' => 'form-control')); ?>
@@ -9,7 +9,7 @@
 	</div>
 	<div class="form-group">
 		<div class="col-md-3 text-right">
-			<?php echo Form::label('Inf2', 'inf2', array('class' => 'control-label')); ?>
+			<?php echo Form::label('カラム2', 'inf2', array('class' => 'control-label')); ?>
 		</div>
 		<div class="col-md-5">
 			<?php echo Form::textarea('inf2', Input::post('inf2', isset($dummy) ? $dummy->inf2 : ''), array('class' => 'form-control', 'rows' => 8, 'cols' => 50)); ?>

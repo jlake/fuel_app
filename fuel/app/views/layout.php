@@ -16,18 +16,21 @@
 	<link rel="shortcut icon" href="<?php echo Uri::base() . 'favicon.ico'; ?>">
 </head>
 <body>
+
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu" aria-expanded="false" aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="<?php echo Uri::base(); ?>" class="navbar-brand app-logo">Site Logo</a>
+				<a href="<?php echo Uri::base(); ?>" class="navbar-brand app-logo">
+					Site Logo
+				</a>
 			</div>
-			<div class="navbar-collapse collapse">
+			<div id="navbar-menu" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav"><li>
 					<li class="<?php echo Uri::segment(1) == '' || Uri::segment(1) == 'home' ? 'active' : '' ?>">
 						<?php echo Html::anchor('', 'ホーム'); ?>

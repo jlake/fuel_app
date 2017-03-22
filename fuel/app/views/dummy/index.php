@@ -4,8 +4,8 @@
 <table class="table table-striped">
     <thead>
         <tr>
-            <th>Inf1</th>
-            <th>Inf2</th>
+            <th>カラム1</th>
+            <th>カラム2</th>
             <th>Updated At</th>
             <th></th>
         </tr>

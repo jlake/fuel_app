@@ -1,1 +1,1 @@
-<div class="text-center">	<p>タイムアウトしました。</p>	<p><a href="<?php echo Uri::base(); ?>" class="btn btn-primary">トップへ</a></p>	<p><a href="<?php echo Uri::create('/auth/login'); ?>" class="btn btn-primary">もう一度ログイン</a></p></div>
+<div class="text-center">	<p>有効期限が切れました。(不正アクセス)</p>	<p><a href="<?php echo Uri::base(); ?>" class="btn btn-primary">トップへ</a></p>	<p><a href="<?php echo Uri::create('/auth/login'); ?>" class="btn btn-primary">もう一度ログイン</a></p></div>
